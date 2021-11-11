@@ -1,23 +1,24 @@
+import pandas as pd
+
 class Car:
-    def __init__(self,plate, mark=None, model=None,year=None,space=None, km=None): 
-        self.plate = plate
-        self.mark = mark
-        self.model = model
-        self.year = year
-        self.space = space
-        self.km = km
+    def __init__(self): 
+       self.df =  pd.read_csv('database.csv')
 
-    def __str__(self):
-       ourtput =  '%s, %s, %s, %s, %s, %s' % (self.plate, self.mark, self.model, self.year, self.space, self.km)
-       return ourtput
+    def add_car(self):
+        print(self.df)
+        targa = input("Targa: ")
+        modeli = input("Modeli: ").capitalize()
+        viti = input("Viti prodhimit: ")
+        cc = input("Fuqia motorrit (cc): ")
+        karburanti = input("Naft apo Benzin: ").capitalize()
+        vende = input("Numri I vendeve: ")
+                
+        df2 = pd.DataFrame({'Targa': [targa],'Modeli': [modeli], 'Viti Prodhimit' : [viti], 'Kapacitetti CC' : [cc], 'Karburanti' : [karburanti], 'Numri i vendeve' : [vende]})    
+        #self.df.loc[len(self.df.index)] = [targa,modeli,viti,cc,karburanti,vende]
 
-    def find(self, filter):
-        return  filter in self.plate or filter in self.model
+        return self.df.append(df2, ignore_index = True)
 
-    
-'''
-c1 = Car("AA 123 AA")
-c2 = Car("BB 123 AA")
-c3 = Car("CC 123 AA")
-c4 = Car("DD 123 AA")
-'''
+
+new = Car().add_car()
+
+print(new)

@@ -6,13 +6,14 @@ class Rent:
         self.car = []
 
     def __str__(self):
-       ourtput =  '%s, %s, %s, %s, %s, %s' % (self.car, self.mark, self.model, self.year, self.space, self.km)
+       ourtput =  '%f' % (self.car)
        return ourtput
 
-    def add_new_car(self,plate,type=None, model=None,year=None,space=None, km=None):
-        self.car.append(Car(plate, type,  model, year, space, km))
+    def add_new_car(self,plate,mark=None, model=None,year=None,space=None, km=None):
+        self.car.append(Car(plate, mark, model, year, space, km))
 
+    def rent_car()
 
 r = Rent()
-test = r.add_new_car("AA 123 AA")
-print(test.car)
+test = r.add_new_car("AA 123 AA","Skoda", "Octavia", 1994, 5, 90000)
+print(r.car)
